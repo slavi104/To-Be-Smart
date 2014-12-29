@@ -6,5 +6,5 @@ ActiveRecord::Base.establish_connection(
   :host     => "localhost",
   :username => "root",
   :password => "",
-  :database => "db_alumni"
+  :database => "to_be_smart"
 )
