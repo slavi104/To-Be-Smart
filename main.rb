@@ -1,7 +1,7 @@
 require "rubygems"
 require "sinatra"
 require "active_record"
-# require 'sinatra/activerecord'
+require 'sinatra/activerecord'
 require "sinatra/reloader"
 
 
@@ -27,7 +27,7 @@ ActiveRecord::Base.establish_connection(
   :adapter  => "mysql",
   :host     => "localhost",
   :username => "root",
-  :password => "",
+  :password => "pass",
   :database => "to_be_smart"
 )
 
