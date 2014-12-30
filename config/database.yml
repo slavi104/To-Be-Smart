@@ -1,0 +1,10 @@
+adapter: mysql
+database: to_be_smart
+hostname: 127.0.0.1
+username: root
+password: pass
+socket: C:/xampp/mysql/mysql.sock
+pool: 5
+encoding: utf8
+collation: utf8_general_ci
+timeout: 5000
