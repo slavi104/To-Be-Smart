@@ -1,5 +1,5 @@
+﻿require "erb"
 class Index
-  require "erb"
 	def initialize(args)
 		
 	end

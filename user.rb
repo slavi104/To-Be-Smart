@@ -1,4 +1,4 @@
-require "sinatra/reloader"
+﻿require "sinatra/reloader"
 
 class User < ActiveRecord::Base
   has_many :tracks
@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     @users = User.all()
     string = ''
     @users.each do |user|  
-      string << user.user_name << '-///-' << user.password << '<br>'
+      string << user.user_name << '-------' << user.password << '<br>'
     end
     string
   end

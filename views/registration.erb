@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -11,8 +11,8 @@
         <meta name="keywords" content="tests, 2 be smart, 2besmart">
         <meta name="author" content="Stanislav Venkov">
         <meta name="viewport" content="width=device-width">
-        <!-- <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <style>
             body {
                 padding-top: 60px;
@@ -20,8 +20,8 @@
             }
         </style>
 
-    <!-- <link rel="stylesheet" type="text/css" href="../css/metro-bootstrap.css">
-    <link rel="stylesheet" href="../docs/font-awesome.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/metro-bootstrap.css">
+    <link rel="stylesheet" href="../docs/font-awesome.css">
     </head>
     <body>
         <div id="registrationForm">
@@ -40,18 +40,18 @@
                 
                 <div class="labelAndInput">
                     <label>Password:</label>
-                    <input type="password" id="pass1" name="pass1">
+                    <input type="password" id="pass1" name="password">
+                    <span class="errorloc"></span>
+                </div>
+                <div class="labelAndInput">
+                    <label>Reapeat password:</label>
+                    <input type="password" id="pass2" name="password_repeat">
                     <span class="errorloc"></span>
                 </div>
                 <div class="labelAndInput">
                     <label>Gender:</label>
-                    <input type="radio" name="sex" value="male">Male<br>
+                    <input type="radio" name="sex" value="male">Male
                     <input type="radio" name="sex" value="female">Female
-                </div>
-                <div class="labelAndInput">
-                    <label>Reapeat password:</label>
-                    <input type="password" id="pass2" name="pass2">
-                    <span class="errorloc"></span>
                 </div>
                 
                 <input type="submit" id="registerButton" value="Register">
