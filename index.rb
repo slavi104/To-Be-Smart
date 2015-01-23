@@ -1,10 +1,10 @@
 class Index
+  require "erb"
 	def initialize(args)
 		
 	end
 	
-	def self.showMainPage()
-	  # require_relative 'C:/Users/Slavi/2besmart/index'
+	def self.show_main_page()
 	  erb :index
 	end
 end

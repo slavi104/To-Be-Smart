@@ -1,0 +1,103 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+.link {
+
+	width:10px;
+	height:10px;
+	padding-right:55px;
+	padding-top: 0px;
+
+	position:absolute;
+
+	
+}
+
+.link .addme { 
+	 background-image:url(img/add.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .addme:hover{
+	
+	opacity: 1;
+}
+.link .editme { 
+	 background-image:url(img/edit.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .editme:hover{
+	
+	opacity: 1;
+}
+.link .deleteme { 
+	 background-image:url(img/delete.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .deleteme:hover{
+	
+	opacity: 1;
+}
+.link .favme { 
+	 background-image:url(img/favs.addto.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .favme:hover{
+	
+	opacity: 1;
+}
+
+.link .searchme { 
+	 background-image:url(img/search.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .searchme:hover{
+	
+	opacity: 1;
+}
+
+.link .settingsme { 
+	 background-image:url(img/settings.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .settingsme:hover{
+	
+	opacity: 1;
+}

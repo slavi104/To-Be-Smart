@@ -1,46 +1,36 @@
 require "rubygems"
 require "sinatra"
 require "active_record"
-require 'sinatra/activerecord'
+require "sqlite3"
 require "sinatra/reloader"
-
+require "erb"
+require_relative 'user.rb'
+require_relative 'index.rb'
 
 also_reload 'C:/Users/Slavi/2besmart/users.rb'
+also_reload 'C:/Users/Slavi/2besmart/user.rb'
 also_reload 'C:/Users/Slavi/2besmart/index.rb'
 also_reload 'C:/Users/Slavi/2besmart/views/index.erb'
-
-get '/users' do
-  require_relative 'users.rb'
-  User.showUsers
-end
-
-get '/index' do
-  require_relative 'index.rb'
-  Index.showMainPage
-end
-
-# get '/' do
-#   erb :index
-# end
+also_reload 'C:/Users/Slavi/2besmart/views/registration.erb'
 
 ActiveRecord::Base.establish_connection(
-  :adapter  => "mysql",
-  :host     => "localhost",
-  :username => "root",
-  :password => "pass",
-  :database => "to_be_smart"
+  :adapter => 'sqlite3',
+  :database =>  'to_be_smart.sqlite3.db'
 )
 
-# class User < ActiveRecord::Base
-# end
+get '/' do
+  Index.show_main_page
+end
 
-# ActiveRecord::Migration.create_table :users do |t|
-#   t.string :name
-# end
+post '/save_new_user' do
+  User.save_new_user(params)
+end
 
-# class App < Sinatra::Application
-# end
+get '/users' do
+  User.get_all_users
+end
 
-# get '/' do
-#   p User.all
-# end
+get '/registration' do
+erb :registration #does not work!!!!!!!!!!!!!!!!!!!!!!!!!
+
+end
