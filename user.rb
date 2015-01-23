@@ -1,15 +1,17 @@
-﻿require "sinatra/reloader"
-
-class User < ActiveRecord::Base
+﻿class User < ActiveRecord::Base
   has_many :tracks
 
   def self.get_all_users
     @users = User.all()
     string = ''
     @users.each do |user|  
-      string << user.user_name << '-------' << user.password << '<br>'
+      string << user.user_name << '---44--' << user.password << '<br>'
     end
     string
+  end
+
+  def self.index
+    erb :index
   end
 
   def self.save_new_user(params)

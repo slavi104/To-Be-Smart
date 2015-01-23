@@ -4,14 +4,10 @@ require "active_record"
 require "sqlite3"
 require "sinatra/reloader"
 
-require_relative 'user.rb'
-require_relative 'index.rb'
-
-also_reload 'E:\Документи\СИ 3 курс\Ruby\2beSmart\GitHub\users.rb'
-also_reload 'E:\Документи\СИ 3 курс\Ruby\2beSmart\GitHub\user.rb'
-also_reload 'E:\Документи\СИ 3 курс\Ruby\2beSmart\GitHub\index.rb'
-also_reload 'E:\Документи\СИ 3 курс\Ruby\2beSmart\GitHub\views/index.erb'
-also_reload 'E:\Документи\СИ 3 курс\Ruby\2beSmart\GitHub\views/registration.erb'
+also_reload 'C:\dev\user.rb'
+also_reload 'C:\dev\index.rb'
+also_reload 'C:\dev\views\index.erb'
+also_reload 'C:\dev\views\registration.erb'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
@@ -19,14 +15,17 @@ ActiveRecord::Base.establish_connection(
 )
 
 get '/' do
-  Index.show_main_page
+  require_relative 'index.rb'
+  User.index
 end
 
 post '/save_new_user' do
+  require_relative 'user.rb'
   User.save_new_user(params)
 end
 
 get '/users' do
+  require_relative 'user.rb'
   User.get_all_users
 end
 
