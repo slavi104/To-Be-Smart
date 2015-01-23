@@ -1,11 +1,15 @@
-﻿require "rubygems"
+﻿
+require "rubygems"
 require "sinatra"
 require "active_record"
 require "sqlite3"
+require "sinatra/base"
 require "sinatra/reloader"
+require './models/user.rb'
+require './models/index.rb'
 
-also_reload 'C:\dev\user.rb'
-also_reload 'C:\dev\index.rb'
+also_reload 'C:\dev\models\user.rb'
+also_reload 'C:\dev\models\index.rb'
 also_reload 'C:\dev\views\index.erb'
 also_reload 'C:\dev\views\registration.erb'
 
@@ -15,22 +19,19 @@ ActiveRecord::Base.establish_connection(
 )
 
 get '/' do
-  require_relative 'index.rb'
-  User.index
+  Index.show_main_page
 end
 
 post '/save_new_user' do
-  require_relative 'user.rb'
   User.save_new_user(params)
 end
 
 get '/users' do
-  require_relative 'user.rb'
   User.get_all_users
 end
 
 get '/registration' do
-erb :registration #does not work!!!!!!!!!!!!!!!!!!!!!!!!!
+  erb :registration
 end
 
 get '/registration_html' do

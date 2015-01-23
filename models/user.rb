@@ -1,11 +1,12 @@
 ﻿class User < ActiveRecord::Base
+
   has_many :tracks
 
   def self.get_all_users
     @users = User.all()
     string = ''
     @users.each do |user|  
-      string << user.user_name << '---44--' << user.password << '<br>'
+      string << user.user_name << '---' << user.password << '<br>'
     end
     string
   end
@@ -24,4 +25,5 @@
     new_user.test_points = 0
     new_user.save.to_s
   end
+
 end
