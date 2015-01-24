@@ -5,9 +5,9 @@
   def self.get_all_users
     @users = User.all()
     string = ''
-    @users.each do |user|  
-      string << user.user_name << '-7744-' << user.password << '<br>'
-    end
+    # @users.each do |user|  
+    #   string << user.user_name << '-7744-' << user.password << '<br>'
+    # end
     string
   end
 
