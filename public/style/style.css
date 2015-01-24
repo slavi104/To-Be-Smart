@@ -3,9 +3,13 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 	padding: 0px;
 	margin: 0px;
 }
-#wrapper1
-{
-	
+#wrapper1 {
+	background-color: #BE4B64;
+	width: 64%;
+	margin: auto;
+	margin-top: -55px;
+	padding: 25px;
+	min-height: 400px;
 }
 
 
@@ -63,7 +67,8 @@ nav#menu li
 	text-decoration: none;
 	display: inline-block;
 	position: relative;
-	margin-top: 12px;
+	margin-top: 70px;
+	border-radius: 2px;
 }
 ul>li>a
 {
@@ -73,8 +78,8 @@ ul>li>a
 	padding-left: 25px;
 	padding-top: 20px;
 	padding-bottom: 23px;
-	border: 0px solid #7e0e26;
-	border-radius: 0px;
+	border: 1px solid #7e0e26;
+	border-radius: 5px;
 	font-size: 1.2em;
 	color: #fff;
 	font-weight: bold;
@@ -84,7 +89,7 @@ nav#menu>ul>li:hover>a
 	color: #fff;
 }
 nav#menu, nav#menu>ul {
-	height: 65px;
+	height: 115px;
 	background-color: rgba(126, 14, 38,0.9);
 	margin-left: 0px;
 	margin-bottom: 20px;
@@ -144,16 +149,13 @@ aside
 	position: relative;
 	text-align: right;
 }
-#login input[type="submit"] {
+input[type="submit"] {
 	background-color: #35000B;
 	border: 0;
 	color: #fff;
 	padding: 5px;
 	cursor: pointer;
-	float: left;
-	width: 50px;
-	margin-left: 8%;
-	margin-top: 63%;
+	width: 153px;
 }
 #login input[type="text"], #login input[type="password"] {
 	background-color: #BE4B64;
@@ -256,13 +258,6 @@ aside
 input#userName-input {
 	font-size: 28px;
 	text-align: center;
-}
-
-#search-button{
-	background-image: url("../images/search-icon.png");
-	width: 20px;
-	height:20px;
-	margin-top: 1px;
 }
 
 /* 

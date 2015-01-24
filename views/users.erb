@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
       <title>To be smart</title>
@@ -69,39 +69,10 @@
       </aside>
     </header>
     <div id="wrapper1">
-        <div id="registrationForm">
-            <h2>Registration:</h2>
-            <form method="POST" action="/save_new_user" id="registrationForm">
-                <div class="labelAndInput">
-                    <label>Username:</label>
-                    <input type="text" id="name" name="user_name">
-                    <span class="errorloc"></span>
-                </div>
-                <div class="labelAndInput">
-                    <label>Mail:</label>
-                    <input type="text" id="email" name="email">
-                    <span class="errorloc"></span>
-                </div>
-                
-                <div class="labelAndInput">
-                    <label>Password:</label>
-                    <input type="password" id="pass1" name="password">
-                    <span class="errorloc"></span>
-                </div>
-                <div class="labelAndInput">
-                    <label>Reapeat password:</label>
-                    <input type="password" id="pass2" name="password_repeat">
-                    <span class="errorloc"></span>
-                </div>
-                <div class="labelAndInput">
-                    <label>Gender:</label>
-                    <input type="radio" name="sex" value="male">Male
-                    <input type="radio" name="sex" value="female">Female
-                </div>
-                
-                <input type="submit" id="registerButton" value="Register">
-            </form>
-        </div>
+      
+      <%= users %>
+      
+      
       <script type="text/javascript">
       // var toggleCheck = 1;
       // function checkInvitation () {
@@ -133,7 +104,6 @@
       // });
       </script>
     </div> 
-    <div id="request_holder" style="float:right;"></div>
     <footer>
       
     </footer>

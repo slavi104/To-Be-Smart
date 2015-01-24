@@ -30,7 +30,6 @@ module Constants
   HOST = '127.0.0.1'
   HOST_USER = 'root'
   HOST_PASSWORD = 'pass'
-  HOST_DATABASE ='myhomepage_ruby'
   NO_OLD_PASSWORD = "Няма въведена парола !"
   WRONG_PASSWORD_REPEAT = "Грешно повторена парола !"
 end
