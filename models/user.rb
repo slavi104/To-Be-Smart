@@ -6,13 +6,9 @@
     @users = User.all()
     string = ''
     @users.each do |user|  
-      string << user.user_name << '---' << user.password << '<br>'
+      string << user.user_name << '-7744-' << user.password << '<br>'
     end
     string
-  end
-
-  def self.index
-    erb :index
   end
 
   def self.save_new_user(params)
