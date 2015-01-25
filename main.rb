@@ -23,8 +23,13 @@ post '/login' do
 end
 
 post '/save_new_user' do
-  User.save_new_user(params)
-  redirect to('./users')
+  # User.save_new_user(params)
+  registration = User.save_new_user(params)
+  if registration
+    registration
+  else
+    redirect to('./users')
+  end
 end
 
 get '/users' do

@@ -17,7 +17,6 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 body 
 {
 	background-color: #fff;
-	background-image:url("../images/backgound1.png");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	text-align: center;
@@ -548,7 +547,6 @@ nav#menu>ul>li>a:hover {
 @media (min-width: 1200px){
 	body {
 		background-color: #fff;
-		background-image:url("../images/background-fullhd.png");
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		text-align: center;

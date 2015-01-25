@@ -22,6 +22,7 @@ module Constants
   EMAIL_TOO_SHORT = "Минимума на символи за Email е #{EMAIL_MIN_LENGHT} ! "
   EMAIL_TOO_LONG = "Надвишили сте максимума символи за Email който е #{EMAIL_MAX_LENGHT} символа !"
   NOTVALID_EMAIL = "Въведете валиден Email !"
+  NOTEQUAL_PASSWORDS = "Паролите не съвпадат!"
   DISPLAY_NEWS = 3
   LINKS_MIN_LENGHT = 6
   LINK_MIN_ERROR = "Минимума на символи за линк е #{LINKS_MIN_LENGHT} ! "

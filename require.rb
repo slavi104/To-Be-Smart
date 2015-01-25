@@ -8,7 +8,9 @@ require './models/test.rb'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
-  :database =>  'to_be_smart.sqlite3.db'
+  :database =>  'to_be_smart.sqlite3.db',
+  :pool => 30000,
+  :timeout => 10000
 )
 
 set :session_secret, 'to_be_smart'
