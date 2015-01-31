@@ -38,9 +38,7 @@ post '/login' do
 end
 
 post '/logout' do
-  SESSION['logged'] = false
-  SESSION['user_name'] = nil
-  SESSION['email'] = nil
+  User.logout
   redirect to('./')
 end
 
@@ -66,4 +64,8 @@ get '/registration' do
   erb :registration ,:locals => {
                                :errors => ''
                              }
+end
+
+get '/get_tests' do
+  params.inspect
 end
