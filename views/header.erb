@@ -26,11 +26,11 @@
             <li class="nav-buttons"><a href="users">users</a></li>
             <li class="nav-buttons"><a href="contacts">contacts</a></li>
             <li class="nav-buttons"><a href="profile">profile</a></li>
-            <li class="nav-buttons"><a href="registration">register</a></li>   
+            <li class="nav-buttons" style="<%= 'display:none;' if SESSION['logged'] %>" ><a href="registration">register</a></li>   
           </ul>
         </nav>
       <aside>
-        <div id="login">
+        <div id="login" style="<%= 'display:none;' if SESSION['logged'] %>">
           <form method="POST" action="login" style="text-align: right; margin-top: 15px;">
             <div>
               <label>Mail:</label><input type="text" id="emaillog" name="emaillog">
@@ -39,6 +39,13 @@
               <label>Password:</label><input type="password" id="pass" name="pass">
             </div>
             <input type="submit" value="Login">
+          </form>
+        </div>
+        <div id="logout" style="<%= 'display:none;' if !SESSION['logged'] %>">
+          <form method="POST" action="logout" style="text-align: right; margin-top: 15px;">
+            <h2><%= SESSION['user_name'] %></h2>
+            <input type="hidden" value="<%= SESSION['email'] %>"/>
+            <input type="submit" value="Logout"/>
           </form>
         </div>
       </aside>

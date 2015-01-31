@@ -38,7 +38,15 @@
   def self.login(mail="user",password="pass")
     pass = Digest::MD5.hexdigest password.reverse
     current_user = User.find_by(email: mail , :password => pass )
-    current_user = User.new unless current_user
+
+    if current_user
+      SESSION['logged'] = true
+      SESSION['user_name'] = current_user.user_name
+      SESSION['email'] = current_user.email
+    else
+      current_user = User.new unless current_user
+    end
+
     current_user.errors[:email] << Constants::WRONG_EMAIL unless current_user and User.find_by(:email => mail )
     current_user.errors[:password] << Constants::WRONG_PASSWORD unless current_user and User.find_by(:password => pass  )
     current_user

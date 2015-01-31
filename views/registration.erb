@@ -1,4 +1,4 @@
-﻿<%= File.read("#{PATH_APP}views/header.erb") %>
+﻿<%= erb :header %>
   <div id="registrationForm">
       <h2>Registration:</h2>
       <form method="POST" action="/save_new_user" id="registrationForm">
@@ -32,4 +32,4 @@
           <input type="submit" id="registerButton" value="Register">
       </form>
   </div>
-<%= File.read("#{PATH_APP}views/footer.erb") %>
+<%= erb :footer %>

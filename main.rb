@@ -7,6 +7,7 @@ also_reload './models/user.rb'
 also_reload './models/test.rb'
 
 PATH_APP = 'C:/dev/'
+SESSION = Hash.new
 
 get '/' do
   erb :index
@@ -26,6 +27,13 @@ post '/login' do
                        :errors => user.errors,
                        :user_name => user.user_name
   }
+end
+
+post '/logout' do
+  SESSION['logged'] = false
+  SESSION['user_name'] = nil
+  SESSION['email'] = nil
+  redirect to('./')
 end
 
 post '/save_new_user' do
