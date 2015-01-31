@@ -1,0 +1,32 @@
+﻿<%= erb :header %>
+<form id="test-form" method="POST" action="grade_test?id=<%= test.id %>">
+  <h1><div id="testName"><%= test.title %></div></h1>
+<%=
+
+      questions = test.content.split('@');
+      html = ''
+      question_answer_switch = true
+      questions.each do |question|
+        if question_answer_switch
+          html << "<br><div id='question'><b>#{question}</b></div>"
+        else 
+          answers = question.split('$')
+          answer_points_switch = true
+          answers.each do |answer|
+            name = question.gsub(" ", "_")
+            if answer_points_switch
+              html << "<input  id='answer' type='radio' name='#{name}' value='#{answer}'><i>#{answer}</i><br>"
+            end
+            answer_points_switch = !answer_points_switch
+          end
+        end
+        question_answer_switch = !question_answer_switch
+      end
+      html
+
+%>
+
+ <input id="submit-test" type="submit" value="Приключване на теста!"></input>
+</form>
+      
+<%= erb :footer %>

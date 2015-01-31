@@ -67,5 +67,11 @@ get '/registration' do
 end
 
 get '/get_tests' do
-  params.inspect
+  Test.get_tests(params['category'])
+end
+
+get '/test' do
+  erb :test, :locals => {
+                        :test => Test.get_test(params['id'])
+                     } 
 end

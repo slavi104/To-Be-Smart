@@ -31,10 +31,11 @@ $(document).ready(function(){
       type: 'GET',
       url: '/get_tests',
       data: {
-        test_type: $(this).attr('data-type')
+        category: $(this).attr('data-type')
       }
     }).done(function(data){
-      console.log(data);
+      $('#wrapper1').empty();
+      $('#wrapper1').append(data);
     });
   });
 });

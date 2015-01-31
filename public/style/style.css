@@ -61,6 +61,10 @@ header
 	margin-bottom: 0px;*/
 }
 
+label {
+	color: white;
+}
+
 nav#menu li
 {
 	text-decoration: none;
@@ -470,7 +474,7 @@ input#userName-input {
 	margin-top: 20px;
 }
 #submit-test{
-	background-color: #035151;
+	background-color: #35000B;
 	border: 0;
 	color: #fff;
 	padding: 5px;
