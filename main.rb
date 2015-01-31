@@ -6,12 +6,14 @@ require './helpers/user.rb'
 also_reload './models/user.rb'
 also_reload './models/test.rb'
 
+PATH_APP = 'C:/dev/'
+
 get '/' do
   erb :index
 end
 
 get '/index' do
-  erb :index
+  erb :index 
 end
 
 get '/tests' do
@@ -19,7 +21,11 @@ get '/tests' do
 end
 
 post '/login' do
-  'login'
+  user = User.login(params[:emaillog], params[:pass])
+  erb :index ,:locals => {
+                       :errors => user.errors,
+                       :user_name => user.user_name
+  }
 end
 
 post '/save_new_user' do

@@ -1,141 +1,35 @@
-﻿<!DOCTYPE html>
-<html>
-  <head>
-      <title>To be smart</title>
-      <link type="text/css" rel="stylesheet" href="../style/style.css">
-<!--       <link rel="shortcut icon" href="images/favicon.ico"> -->
-      <link rel="stylesheet" type="text/css" href="../style/articles-style.css">
-      <link rel="stylesheet" type="text/css" href="../style/contacts-style.css">
-      <link rel="stylesheet" type="text/css" href="../style/games-style.css">
-      <meta charset="utf-8"/>
-      <script language="javascript" type="text/javascript" src="../js/jquery-1.10.2.js"></script>
-      <script language="javascript" type="text/javascript" src="../js/jquery-ui.js"></script>
-      <script language="javascript" type="text/javascript" src="../js/jquery-ui1.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>  
-    <header>
-      <div id="headerWrapper">
-        <div id="logo">
-
-        </div>
-      </div>
-        <nav id="menu">
-          <!-- <div id="search_holder">
-            <form method="post" action='search'>
-              <div id='search_container'>
-                <input placeholder="Search..." name='search_text'/>
-                <input type='submit' id="search-button" value='Search'/>
-              </div>
-            </form>
-          </div> -->
-          <ul>
-            <li class="nav-buttons"><a href="index">home</a></li>
-            <li class="nav-buttons"><a href="tests">tests</a></li>
-            <li class="nav-buttons"><a href="users">users</a></li>
-            <li class="nav-buttons"><a href="contacts">contacts</a></li>
-            <li class="nav-buttons"><a href="profile">profile</a></li>
-            <li class="nav-buttons"><a href="registration">register</a></li>   
-          </ul>
-        </nav>
-      <script>
-
-      $( document ).ready(function() {
-        // $( ".nav-buttons" ).mouseover(function() {
-        //   if ($(this).children().last().attr('class') == "subMenu") {
-        //       $(this).children().last().show();
-        //   };
+﻿<%= File.read("#{PATH_APP}views/header.erb") %>
+  <div id="registrationForm">
+      <h2>Registration:</h2>
+      <form method="POST" action="/save_new_user" id="registrationForm">
+          <div class="labelAndInput">
+              <label>Username:</label>
+              <input type="text" id="name" name="user_name">
+              <span class="errorloc"></span>
+          </div>
+          <div class="labelAndInput">
+              <label>Mail:</label>
+              <input type="text" id="email" name="email">
+              <span class="errorloc"></span>
+          </div>
           
-        // });
-        // $( ".nav-buttons" ).mouseout(function() {
-        //   if ($(this).children().last().attr('class') == "subMenu") {
-        //     $(this).children().last().hide();
-        //   }
-        // });
-      });
-      </script>
-      <aside>
-        <div id="login">
-          <form method="POST" action="login" style="text-align: right; margin-top: 15px;">
-            <div>
-              <label>Mail:</label><input type="text" id="emaillog" name="emaillog">
-            </div>
-            <div>
-              <label>Password:</label><input type="password" id="pass" name="pass">
-            </div>
-            <input type="submit" value="Login">
-          </form>
-        </div>
-      </aside>
-    </header>
-    <div id="wrapper1">
-        <div id="registrationForm">
-            <h2>Registration:</h2>
-            <form method="POST" action="/save_new_user" id="registrationForm">
-                <div class="labelAndInput">
-                    <label>Username:</label>
-                    <input type="text" id="name" name="user_name">
-                    <span class="errorloc"></span>
-                </div>
-                <div class="labelAndInput">
-                    <label>Mail:</label>
-                    <input type="text" id="email" name="email">
-                    <span class="errorloc"></span>
-                </div>
-                
-                <div class="labelAndInput">
-                    <label>Password:</label>
-                    <input type="password" id="pass1" name="password">
-                    <span class="errorloc"></span>
-                </div>
-                <div class="labelAndInput">
-                    <label>Reapeat password:</label>
-                    <input type="password" id="pass2" name="password_repeat">
-                    <span class="errorloc"></span>
-                </div>
-                <div class="labelAndInput">
-                    <label>Gender:</label>
-                    <input type="radio" name="sex" value="male">Male
-                    <input type="radio" name="sex" value="female">Female
-                </div>
-                <span class="registration_error"><%= errors %></span>
-                <input type="submit" id="registerButton" value="Register">
-            </form>
-        </div>
-      <script type="text/javascript">
-      // var toggleCheck = 1;
-      // function checkInvitation () {
-
-      //   $.ajax({
-      //       type: 'post',
-      //       url: "'.$root.'checkInvitation'",
-      //       data: {
-      //         id:"Session::get('current_user_id'); "
-      //       },
-      //       dataType: 'html'
-      //     }).done(function(data){
-            
-      //       if (toggleCheck === 1) {
-      //         $('#request_holder').append(data);
-      //         toggleCheck = 0;
-      //         //setTimeout(function(){ window.location = "/Github/GamesWebSite/tests"; }, 2000);
-      //       } else {
-      //         //$('#game_invitation').remove();
-
-      //       };
-            
-      //   });
-
-      // }
-
-      // $(document).ready(function () {
-      //   setInterval(checkInvitation, 2000);
-      // });
-      </script>
-    </div> 
-    <div id="request_holder" style="float:right;"></div>
-    <footer>
-      
-    </footer>
-  </body>
-</html>
+          <div class="labelAndInput">
+              <label>Password:</label>
+              <input type="password" id="pass1" name="password">
+              <span class="errorloc"></span>
+          </div>
+          <div class="labelAndInput">
+              <label>Reapeat password:</label>
+              <input type="password" id="pass2" name="password_repeat">
+              <span class="errorloc"></span>
+          </div>
+          <div class="labelAndInput">
+              <label>Gender:</label>
+              <input type="radio" name="sex" value="male">Male
+              <input type="radio" name="sex" value="female">Female
+          </div>
+          <span class="registration_error"><%= errors %></span>
+          <input type="submit" id="registerButton" value="Register">
+      </form>
+  </div>
+<%= File.read("#{PATH_APP}views/footer.erb") %>
