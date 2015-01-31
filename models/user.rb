@@ -14,8 +14,8 @@
   def self.save_new_user(params)
     password = params[:password]
     existing_user = User.where(:email => params[:email])
-    puts existing_user.inspect
-    if password == params[:password_repeat] && password.size >= Constants::PASSWORD_MIN_LENGHT && existing_user
+
+    if password == params[:password_repeat] && password.size >= Constants::PASSWORD_MIN_LENGHT && existing_user.size == 0
       pass = Digest::MD5.hexdigest password.reverse
       new_user = User.new
       new_user.user_name = params[:user_name]
@@ -25,12 +25,12 @@
       new_user.is_active = 1
       new_user.test_points = 0
       new_user.save
-      puts 'user'
+      false
     elsif params[:password] != params[:password_repeat]
       Constants::NOTEQUAL_PASSWORDS
     elsif password.size < Constants::PASSWORD_MIN_LENGHT
       Constants::SHORT_PASSWORD
-    elsif existing_user.email == params[:email]
+    elsif existing_user.size > 0
       Constants::USERNAME_TAKEN
     end
   end

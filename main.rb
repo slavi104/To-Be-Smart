@@ -26,7 +26,9 @@ post '/save_new_user' do
   # User.save_new_user(params)
   registration = User.save_new_user(params)
   if registration
-    registration
+    erb :registration ,:locals => {
+                               :errors => registration
+                             }
   else
     redirect to('./users')
   end
@@ -39,5 +41,7 @@ get '/users' do
 end
 
 get '/registration' do
-  erb :registration
+  erb :registration ,:locals => {
+                               :errors => ''
+                             }
 end
