@@ -21,6 +21,14 @@ get '/tests' do
   erb :tests
 end
 
+get '/profile' do
+  erb :profile
+end
+
+get '/categories' do
+  erb :categories
+end
+
 post '/login' do
   user = User.login(params[:emaillog], params[:pass])
   erb :index ,:locals => {

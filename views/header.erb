@@ -21,12 +21,14 @@
       </div>
         <nav id="menu">
           <ul>
-            <li class="nav-buttons"><a href="index">home</a></li>
-            <li class="nav-buttons"><a href="tests">tests</a></li>
-            <li class="nav-buttons"><a href="users">users</a></li>
-            <li class="nav-buttons"><a href="contacts">contacts</a></li>
-            <li class="nav-buttons"><a href="profile">profile</a></li>
-            <li class="nav-buttons" style="<%= 'display:none;' if SESSION['logged'] %>" ><a href="registration">register</a></li>   
+            <li class="nav-buttons"><a href="index">HOME</a></li>
+            <li class="nav-buttons"><a href="tests">TESTS</a></li>
+            <li class="nav-buttons"><a href="categories">TEST CATEGORIES</a></li>
+            <li class="nav-buttons"><a href="users">USERS</a></li>
+            <li class="nav-buttons" style="<%= 'display:none;' if !SESSION['logged'] %>">
+              <a href="profile"><%= SESSION['user_name'] %></a>
+            </li>
+            <li class="nav-buttons" style="<%= 'display:none;' if SESSION['logged'] %>" ><a href="registration">REGISTRATION</a></li>   
           </ul>
         </nav>
       <aside>
@@ -41,13 +43,7 @@
             <input type="submit" value="Login">
           </form>
         </div>
-        <div id="logout" style="<%= 'display:none;' if !SESSION['logged'] %>">
-          <form method="POST" action="logout" style="text-align: right; margin-top: 15px;">
-            <h2><%= SESSION['user_name'] %></h2>
-            <input type="hidden" value="<%= SESSION['email'] %>"/>
-            <input type="submit" value="Logout"/>
-          </form>
-        </div>
+        
       </aside>
     </header>
     <div id="wrapper1">

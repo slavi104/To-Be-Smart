@@ -1,0 +1,7 @@
+<%= erb :header %>
+<h2><%= SESSION['user_name'] %></h2>
+<form method="POST" action="logout">
+  <input type="hidden" value="<%= SESSION['email'] %>"/>
+  <input type="submit" value="Logout"/>
+</form>
+<%= erb :footer %>
