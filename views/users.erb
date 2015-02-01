@@ -1,5 +1,19 @@
 <%= erb :header %>
-      
-      <%= users %>
+
+<div id="content">
+  <table id="users">
+      <thead>
+          <tr>
+              <th>Потребителско име</th>
+              <th>Точки от тестове</th>
+              <th>Номер в класацията</th>
+              <th>Регистриран на</th>
+          </tr>
+      </thead>
+      <tbody id="tb">
+        <%= users %>
+      </tbody>
+  </table>
+</div>
       
 <%= erb :footer %>

@@ -1,6 +1,7 @@
 ﻿<%= erb :header %>
+<div id="content">
   <div id="registrationForm">
-      <h2>Registration:</h2>
+      <h2 style="color: #fff;">Registration:</h2>
       <form method="POST" action="/save_new_user" id="registrationForm">
           <div class="labelAndInput">
               <label>Username:</label>
@@ -25,11 +26,12 @@
           </div>
           <div class="labelAndInput">
               <label>Gender:</label>
-              <input type="radio" name="sex" checked value="male">Male
-              <input type="radio" name="sex" value="female">Female
+              <input type="radio" name="sex" checked value="male"><span style="color:white;">Male</span>
+              <input type="radio" name="sex" value="female"><span style="color:white;">Female</span>
           </div>
           <span class="registration_error"><%= errors %></span>
           <input type="submit" id="registerButton" value="Register">
       </form>
   </div>
+</div>
 <%= erb :footer %>

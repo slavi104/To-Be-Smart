@@ -1,32 +1,46 @@
 ﻿<%= erb :header %>
-<form id="test-form" method="POST" action="grade_test?id=<%= test.id %>">
-  <h1><div id="testName"><%= test.title %></div></h1>
-<%=
-
-      questions = test.content.split('@');
-      html = ''
-      question_answer_switch = true
-      questions.each do |question|
-        if question_answer_switch
-          html << "<br><div id='question'><b>#{question}</b></div>"
-        else 
-          answers = question.split('$')
-          answer_points_switch = true
-          answers.each do |answer|
-            name = question.gsub(" ", "_")
-            if answer_points_switch
-              html << "<input  id='answer' type='radio' name='#{name}' value='#{answer}'><i>#{answer}</i><br>"
-            end
-            answer_points_switch = !answer_points_switch
-          end
-        end
-        question_answer_switch = !question_answer_switch
-      end
-      html
-
-%>
-
- <input id="submit-test" type="submit" value="Приключване на теста!"></input>
+<form id="test-form">
+  <input type="hidden" name="id" value="<%= test.id %>" />
+  <%=test.generate_test %>
+  <input id="submit-test" type="submit" value="Приключване на теста!"></input>
+  <span id="points_container"></span>
 </form>
-      
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#submit-test').on('click', function(e){
+    e.preventDefault();
+    if ('<%= SESSION["logged"] ? "logged" : "" %>' === "") {
+      window.location.href = '/registration'
+    } else {
+
+      $.ajax({
+        type: 'POST',
+        url: '/grade_test?id=' + '<%= test.id %>',
+        data: $('#test-form').serialize(),
+        dataType: 'json'
+      }).done(function(questions){
+        var points = 0;
+        $('.answer').each(function(){
+          if ($(this).prop('checked')) {
+            if (questions[$(this).prop('name')][$(this).val()] != '0') {
+              $(this).next().css('color', 'green');
+              points++;
+            } else {
+              $(this).next().css('color', 'red');
+            }
+          };
+        });
+        $('#points_container').append(points);
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+      });
+
+    };
+  });
+
+  $('#wrapper0').css('background-image', 'url("<%= test.image %>")');
+  $('#wrapper0').css('width', $('body').css('width'));
+  $('#wrapper0').css('height', $('body').css('height'));
+  $('#wrapper0').css('background-size', $('body').css('width') + ' ' + $('body').css('height'));
+});
+</script>
 <%= erb :footer %>

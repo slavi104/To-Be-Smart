@@ -1,43 +1,51 @@
 <%= erb :header %>
-      
-<div class="test_category" data-type="history">
-  <img class="category_img" src="images/categories/history.jpg">
-  <span class="category_name"><h3>История</h3></span>
-</div>
-<div class="test_category" data-type="geography">
-  <img class="category_img" src="images/categories/geography.jpg">
-  <span class="category_name"><h3>География</h3></span>
-</div>
-<div class="test_category" data-type="iq">
-  <img class="category_img" src="images/categories/iq.jpg">
-  <span class="category_name"><h3>IQ</h3></span>
-</div>
-<div class="test_category" data-type="music">
-  <img class="category_img" src="images/categories/music.jpg">
-  <span class="category_name"><h3>Музика</h3></span>
-</div>
-<div class="test_category" data-type="movies">
-  <img class="category_img" src="images/categories/movies.jpg">
-  <span class="category_name"><h3>Кино</h3></span>
-</div>
-<div class="test_category" data-type="general">
-  <img class="category_img" src="images/categories/general.jpg">
-  <span class="category_name"><h3>Общи</h3></span>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.test_category').on('click', function(){
-    $.ajax({
-      type: 'GET',
-      url: '/get_tests',
-      data: {
-        category: $(this).attr('data-type')
-      }
-    }).done(function(data){
-      $('#wrapper1').empty();
-      $('#wrapper1').append(data);
+<div id="content">
+  <div class="test_category" data-type="history">
+    <img class="category_img" src="images/categories/history.jpg">
+    <span class="category_name"><h3>История</h3></span>
+  </div>
+  <div class="test_category" data-type="geography">
+    <img class="category_img" src="images/categories/geography.jpg">
+    <span class="category_name"><h3>География</h3></span>
+  </div>
+  <div class="test_category" data-type="iq">
+    <img class="category_img" src="images/categories/iq.jpg">
+    <span class="category_name"><h3>IQ</h3></span>
+  </div>
+  <div class="test_category" data-type="music">
+    <img class="category_img" src="images/categories/music.jpg">
+    <span class="category_name"><h3>Музика</h3></span>
+  </div>
+  <div class="test_category" data-type="movies">
+    <img class="category_img" src="images/categories/movies.jpg">
+    <span class="category_name"><h3>Кино</h3></span>
+  </div>
+  <div class="test_category" data-type="general">
+    <img class="category_img" src="images/categories/general.jpg">
+    <span class="category_name"><h3>Общи</h3></span>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.test_category').on('click', function(){
+      var category = $(this).attr('data-type');
+      $.ajax({
+        type: 'GET',
+        url: '/get_tests',
+        data: {
+          category: category
+        }
+      }).done(function(data){
+
+        $('#wrapper1').empty();
+        $('#wrapper1').append(data);
+
+        $('#wrapper0').css('background-image', 'url("images/categories/' + category + '.jpg")');
+        $('#wrapper0').css('width', $('body').css('width'));
+        $('#wrapper0').css('height', $('body').css('height'));
+        $('#wrapper0').css('background-size', $('body').css('width') + ' ' + $('body').css('height'));
+      });
     });
   });
-});
-</script>
+  </script>
+</div>
 <%= erb :footer %>

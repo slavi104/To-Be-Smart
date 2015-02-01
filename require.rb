@@ -5,6 +5,8 @@ require "sinatra/base"
 require './helpers/constants.rb'
 require './models/user.rb'
 require './models/test.rb'
+require 'chrome_logger'
+use ChromeLogger
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',

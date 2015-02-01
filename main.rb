@@ -75,3 +75,9 @@ get '/test' do
                         :test => Test.get_test(params['id'])
                      } 
 end
+
+post '/grade_test' do
+  test = Test.find_by(:id => params['id'])
+  test.grade_json(params)
+end
+

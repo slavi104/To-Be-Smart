@@ -2,6 +2,8 @@
   
   require_relative '../helpers/constants.rb'
   has_many :tracks
+  require 'date'
+  require 'time'
 
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ , :message => Constants::NOTVALID_EMAIL
 
@@ -13,10 +15,17 @@
   }
 
   def self.get_all_users
-    @users = User.all()
-    string = ''
-    @users.each do |user|  
-      string << user.user_name << '<br>'
+    @users = User.all().order('test_points DESC')
+    index, string, points = 0, '', 0
+    @users.each do |user|
+      index += 1 unless points == user.test_points
+      string << "<tr>
+                    <th>#{user.user_name}</th>
+                    <th>#{user.test_points}</th>
+                    <th>#{index}</th>
+                    <th>#{user.created_on}</th>
+                </tr>"
+      points = user.test_points
     end
     string
   end
@@ -34,6 +43,8 @@
       new_user.sex = params[:sex]
       new_user.is_active = 1
       new_user.test_points = 0
+      new_user.created_on = Date.today.to_s
+      puts Date.today.to_s
       new_user.save
       false
     elsif params[:password] != params[:password_repeat]
@@ -53,6 +64,7 @@
       SESSION['logged'] = true
       SESSION['user_name'] = current_user.user_name
       SESSION['email'] = current_user.email
+      SESSION['current_user'] = current_user
     else
       current_user = User.new unless current_user
     end
@@ -65,7 +77,8 @@
   def self.logout
     SESSION['logged'] = false
     SESSION['user_name'] = nil
-    SESSION['email'] = nil  
+    SESSION['email'] = nil
+    SESSION['current_user'] = User.new
   end
 
 end

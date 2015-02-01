@@ -7,6 +7,11 @@
         };
         $('a[href="' + page + '"]').css('padding-bottom', '27px');
         $('a[href="' + page + '"]').css('background-color', '#BE4B64');
+
+        $('#wrapper0').css('background-image', 'url("images/general/' + page + '.jpg")');
+        $('#wrapper0').css('width', $('body').css('width'));
+        $('#wrapper0').css('height', $('body').css('height'));
+        $('#wrapper0').css('background-size', $('body').css('width') + ' ' + $('body').css('height'));
       });
       </script>
     </div> 
