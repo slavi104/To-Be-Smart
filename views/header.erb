@@ -21,14 +21,14 @@
       </div>
         <nav id="menu">
           <ul>
-            <li class="nav-buttons"><a href="index">HOME</a></li>
-            <li class="nav-buttons"><a href="tests">TESTS</a></li>
-            <li class="nav-buttons"><a href="categories">TEST CATEGORIES</a></li>
-            <li class="nav-buttons"><a href="users">USERS</a></li>
+            <li class="nav-buttons"><a href="index">НАЧАЛО</a></li>
+            <li class="nav-buttons"><a href="tests">ТЕСТОВЕ</a></li>
+            <li class="nav-buttons"><a href="categories">КАТЕГОРИИ</a></li>
+            <li class="nav-buttons"><a href="users">ПОТРЕБИТЕЛИ</a></li>
             <li class="nav-buttons" style="<%= 'display:none;' if !SESSION['logged'] %>">
               <a href="profile"><%= SESSION['user_name'] %></a>
             </li>
-            <li class="nav-buttons" style="<%= 'display:none;' if SESSION['logged'] %>" ><a href="registration">REGISTRATION</a></li>   
+            <li class="nav-buttons" style="<%= 'display:none;' if SESSION['logged'] %>" ><a href="registration">РЕГИСТРАЦИЯ</a></li>   
           </ul>
         </nav>
       <aside>

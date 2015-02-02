@@ -1,7 +1,10 @@
 <%= erb :header %>
-<h2><%= SESSION['user_name'] %></h2>
-<form method="POST" action="logout">
-  <input type="hidden" value="<%= SESSION['email'] %>"/>
-  <input type="submit" value="Logout"/>
-</form>
+<div id="content">
+  <h2>Потребителско име: <%= SESSION['user_name'] %></h2>
+  <h2>Точки от тестове: <%= SESSION['current_user'].test_points %></h2>
+  <form method="POST" action="logout">
+    <input type="hidden" value="<%= SESSION['email'] %>"/>
+    <input type="submit" value="Изход"/>
+  </form>
+</div>
 <%= erb :footer %>
