@@ -31,10 +31,7 @@ end
 
 post '/login' do
   user = User.login(params[:emaillog], params[:pass])
-  erb :index ,:locals => {
-                       :errors => user.errors,
-                       :user_name => user.user_name
-  }
+  erb :index
 end
 
 post '/logout' do
@@ -43,15 +40,9 @@ post '/logout' do
 end
 
 post '/save_new_user' do
-  # User.save_new_user(params)
-  registration = User.save_new_user(params)
-  if registration
-    erb :registration ,:locals => {
-                               :errors => registration
-                             }
-  else
-    redirect to('./users')
-  end
+  erb :registration ,:locals => {
+                             :errors => User.save_new_user(params)
+                           }
 end
 
 get '/users' do
@@ -67,17 +58,17 @@ get '/registration' do
 end
 
 get '/get_tests' do
-  Test.get_tests(params['category'])
+  TestUser.get_tests(params['category'])
 end
 
 get '/test' do
   erb :test, :locals => {
-                        :test => Test.get_test(params['id'])
+                        :test => TestUser.get_test(params['id'])
                      } 
 end
 
 post '/grade_test' do
-  test = Test.find_by(:id => params['id'])
+  test = TestUser.find_by(:id => params['id'])
   test.grade_json(params)
 end
 

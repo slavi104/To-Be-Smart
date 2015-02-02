@@ -1,26 +1,31 @@
 ﻿<%= erb :header %>
 <form id="test-form">
   <input type="hidden" name="id" value="<%= test.id %>" />
+  <span id="points_container">Точки от теста: </span>
   <%=test.generate_test %>
   <input id="submit-test" type="submit" value="Приключване на теста!"></input>
-  <span id="points_container"></span>
 </form>
 <script type="text/javascript">
 $(document).ready(function(){
+  var execute = 1;
   $('#submit-test').on('click', function(e){
     e.preventDefault();
     if ('<%= SESSION["logged"] ? "logged" : "" %>' === "") {
       window.location.href = '/registration'
-    } else {
-
+    } else if (execute) {
+      execute = 0;
       $.ajax({
+
         type: 'POST',
         url: '/grade_test?id=' + '<%= test.id %>',
         data: $('#test-form').serialize(),
         dataType: 'json'
+
       }).done(function(questions){
+
         var points = 0;
         $('.answer').each(function(){
+          $(this).prop('disabled', true);
           if ($(this).prop('checked')) {
             if (questions[$(this).prop('name')][$(this).val()] != '0') {
               $(this).next().css('color', 'green');
@@ -32,7 +37,13 @@ $(document).ready(function(){
         });
         $('#points_container').append(points);
         $('html, body').animate({ scrollTop: 0 }, 'slow');
+        
       });
+
+    } else {
+
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+      alert('Този тест вече е решен и точките изкарани от него са записани!');
 
     };
   });

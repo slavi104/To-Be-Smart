@@ -46,27 +46,32 @@
       new_user.created_on = Date.today.to_s
       puts Date.today.to_s
       new_user.save
-      false
-    elsif params[:password] != params[:password_repeat]
-      Constants::NOTEQUAL_PASSWORDS
     elsif password.size < Constants::PASSWORD_MIN_LENGHT
       Constants::SHORT_PASSWORD
     elsif existing_user.size > 0
       Constants::USERNAME_TAKEN
+    elsif params[:password] != params[:password_repeat]
+      Constants::NOTEQUAL_PASSWORDS
     end
   end
 
   def self.login(mail="user",password="pass")
     pass = Digest::MD5.hexdigest password.reverse
-    current_user = User.find_by(email: mail , :password => pass )
+    current_user = User.find_by(email: mail , password: pass)
 
     if current_user
       SESSION['logged'] = true
       SESSION['user_name'] = current_user.user_name
       SESSION['email'] = current_user.email
       SESSION['current_user'] = current_user
+      SESSION['errors'] = ''
     else
-      current_user = User.new unless current_user
+      current_user = User.new
+      if User.find_by(email: mail)
+        SESSION['errors'] = Constants::WRONG_PASSWORD
+      elsif User.find_by(password: pass)
+        SESSION['errors'] = Constants::WRONG_EMAIL
+      end
     end
 
     current_user.errors[:email] << Constants::WRONG_EMAIL unless current_user and User.find_by(:email => mail )

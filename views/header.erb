@@ -35,15 +35,23 @@
         <div id="login" style="<%= 'display:none;' if SESSION['logged'] %>">
           <form method="POST" action="login" style="text-align: right; margin-top: 15px;">
             <div>
-              <label>Mail:</label><input type="text" id="emaillog" name="emaillog">
+              <label>Имейл:</label><input type="text" id="emaillog" name="emaillog" value="<%= SESSION['email'] %>">
             </div>
             <div>
-              <label>Password:</label><input type="password" id="pass" name="pass">
+              <label>Парола:</label><input type="password" id="pass" name="pass">
             </div>
-            <input type="submit" value="Login">
+            <span id="login_errors" style="background-color: #FAFFBD;"><%= SESSION['errors'] if SESSION['errors'] != '' %></span>
+            <input type="submit" value="Вход">
           </form>
         </div>
-        
+        <script type="text/javascript">
+        $(document).ready(function(){
+          $('#login').on('click', function(){
+            $('#login_errors').empty();
+          });
+          
+        });
+        </script>
       </aside>
     </header>
     <div id="wrapper0">

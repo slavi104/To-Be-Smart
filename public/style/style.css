@@ -486,9 +486,8 @@ input#userName-input {
 	margin-bottom: 20px;
 }
 #testName{
-	margin: auto;
-	width: 200px;
 	text-decoration: underline;
+	text-align: center;
 }
 
 #search_container input[type=search] {
@@ -816,4 +815,11 @@ border: 3px solid #7e0e26;
     opacity : 0.2;
     z-index: -1;
     background-repeat: no-repeat;
+}
+
+span#login_errors {
+	position: absolute;
+	top: 36px;
+	left: 115px;
+	color: black;
 }

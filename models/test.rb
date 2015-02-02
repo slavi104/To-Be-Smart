@@ -1,10 +1,10 @@
-class Test < ActiveRecord::Base
+class TestUser < ActiveRecord::Base
   has_many :tracks
   require 'json'
 
   def self.get_tests(category)
-    @tests = Test.where(:category => category) unless category == 'all'
-    @tests = Test.all() if category == 'all'
+    @tests = TestUser.where(:category => category) unless category == 'all'
+    @tests = TestUser.all() if category == 'all'
     result = ''
     @tests.each { |test| 
       result << "<a class='test_item' href='test?id=#{test.id}'><div><img class='category_img test_img' style='width:200px;' src='#{test.image}'/></div><span class='testTitle'>#{test.title}</span></a>"
@@ -13,7 +13,7 @@ class Test < ActiveRecord::Base
   end
 
   def self.get_test(id)
-    test = Test.find_by(:id => id)
+    test = TestUser.find_by(:id => id)
   end
 
   def grade_json(params)
@@ -41,7 +41,7 @@ class Test < ActiveRecord::Base
       question_answer_switch = !question_answer_switch
     end
 
-    Test.calculate_test_points(params, hash)
+    TestUser.calculate_test_points(params, hash)
 
     hash.to_json
 

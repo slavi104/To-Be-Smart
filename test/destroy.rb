@@ -6,9 +6,9 @@ class UserTest < Test::Unit::TestCase
   end
 
   def test_z_user_destroy
-  	user = User.where(:user_email =>"test@user.local" ).first
-    UserLink.destroy_all(:user_id => user.user_id)
+  	user = User.where(:email =>"test@user.local" ).first
+    User.destroy_all(:id => user.id)
     user.destroy
-  	assert !User.where( :user_email => "test@user.local").first
+  	assert !User.where( :email => "test@user.local").first
   end
 end
