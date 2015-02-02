@@ -823,3 +823,32 @@ span#login_errors {
 	left: 115px;
 	color: black;
 }
+
+.index {
+text-align: justify;
+padding: 15px;
+font-size: 18px;
+}
+
+#index-test-link{
+	text-decoration: none;
+	padding-right: 25px;
+	background-color: #5A0013;
+	padding-left: 25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border: 1px solid #7e0e26;
+	border-radius: 5px;
+	font-size: 1em;
+	color: #fff;
+	font-weight: bold;
+	position: absolute;
+	right: 270px;
+	top: 627px;
+}
+
+h2.profile_info {
+	float: left;
+	width: 700px;
+	text-align: left;
+}
