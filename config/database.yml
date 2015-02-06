@@ -1,0 +1,4 @@
+adapter: sqlite3
+database: to_be_smart.sqlite3.db
+timeout: 5000
+pool: 3000

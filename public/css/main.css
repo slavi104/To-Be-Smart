@@ -1,0 +1,581 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+.link {
+
+	width:10px;
+	height:10px;
+	padding-right:55px;
+	padding-top: 0px;
+
+	position:absolute;
+
+	
+}
+
+.link .addme { 
+	 background-image:url(img/add.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .addme:hover{
+	
+	opacity: 1;
+}
+.link .editme { 
+	 background-image:url(img/edit.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .editme:hover{
+	
+	opacity: 1;
+}
+.link .deleteme { 
+	 background-image:url(img/delete.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .deleteme:hover{
+	
+	opacity: 1;
+}
+.link .favme { 
+	 background-image:url(img/favs.addto.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .favme:hover{
+	
+	opacity: 1;
+}
+
+.link .searchme { 
+	 background-image:url(img/search.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .searchme:hover{
+	
+	opacity: 1;
+}
+
+.link .settingsme { 
+	 background-image:url(img/settings.png);
+	
+		 width: 28px;
+		 background-size:25px 25px;
+  		height: 28px;
+		opacity:0.1;
+		background-position: right top;
+  		background-repeat: no-repeat;
+		}
+.link .settingsme:hover{
+	
+	opacity: 1;
+}
+
+body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, span
+{
+	padding: 0px;
+	margin: 0px;
+}
+#wrapper1
+{
+	
+}
+
+body 
+{
+background-color: #eee;
+background-image:url("http://api.thumbr.it/whitenoise-361x370.png?background=eeeeeeff&noise=626262&density=16&opacity=17");
+ text-align: center;
+}
+
+
+/* 
+------- Header section--------
+ */
+.inactive
+{
+	color: #ccc;
+} 
+.currentPage
+{
+	color: red;
+	font-size: 1.2em;
+}
+
+header
+{
+	height: 192px;
+	text-align: center;
+	position: relative;
+}
+#headerWrapper
+{
+	margin: auto;
+	width: 800px;
+}
+#logo
+{
+	height: 130px;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	margin-bottom: 0px;
+}
+
+nav#menu li
+{
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	margin-top: 20px;
+}
+nav#menu>ul>li>a
+{
+	text-decoration: none;
+	padding-right: 25px;
+	background-color: #00afab;
+	padding-left: 25px;
+	padding-top: 20px;
+	padding-bottom: 23px;
+	border: 0px solid #006385;
+	border-radius: 0px;
+	font-size: 1.2em;
+	color: #fff;
+	font-weight: bold;
+}
+nav#menu>ul>li:hover>a
+{
+	color: #035151;
+}
+nav#menu, nav#menu>ul {
+	height: 65px;
+	background-color: #00afab;
+}
+nav#menu>ul>li>a:hover
+{
+	
+}
+#menu .subMenu
+{
+	background-color: #035151;
+	top: 45px;
+	position: absolute;
+	width: 100%;
+	display: none;
+}
+#menu .subMenu li 
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#menu .subMenu a
+{
+	text-decoration: none;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-size: 1.1em;
+	color: #fff;
+	font-weight: bold;
+	background-color: #035151;
+	position: relative;
+	display: block;
+	
+}
+
+#menu .subMenu li:hover a
+{
+	color: #00afab;
+}
+
+div#search_container {
+	float: right;
+	top: 0px;
+	left: 1200px;
+	margin-top: -150px;
+}
+aside
+{
+	width: 230px;
+	position: absolute;
+	color: #000;
+	top: 0;
+	left: 0;
+	display: inline-block;
+}
+#login
+{
+	position: relative;
+	text-align: right;
+}
+#login input[type="submit"]
+{
+	background-color: #035151;
+	position: absolute;
+	left: 230px;
+	border: 0;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	width: 50px;
+	top: 30px;
+	margin-left: 5px;
+}
+#login input[type="text"], #login input[type="password"]
+{
+	background-color: #b3f4f4;
+	padding: 5px;
+	cursor: pointer;
+	border: 0;
+	color: #000;
+	margin-bottom: 2px;
+	width: 140px;
+	margin-left: 5px;
+}
+ /* 
+------- End Header section--------
+ */
+
+
+
+
+
+.hidden
+{
+	display: none;
+}
+#users
+{
+	margin:auto;
+}
+#users, #users td
+{
+	border: 2px solid black;
+	width: 700px;
+	background-color: #00afab;
+	color: #fff;
+	border-color: #fff;
+}
+#users td, #users th
+{
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#content
+{
+	width: 770px;
+	padding: 15px;
+	border: 0px solid black;
+	margin: auto;
+}
+.hidden
+{
+	display: none;
+}
+#pages
+{
+	text-align: center;
+	width: 450px;
+	margin: auto;
+}
+.buttons
+{
+	padding: 5px;
+	cursor: pointer;
+	font-size: 1.2em;
+	color: #008;
+}
+
+.category_name1{
+	background-color: #000;
+	color: #0B96D0;
+	opacity: 0.7;
+	position: absolute;
+	font-weight: bold;
+	top: 310px;
+	margin-left: -148px;
+	padding: 5px;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	width: 137px;
+	font-weight: bold;
+}
+.category_name2{
+	background-color: #000;
+	color: #0B96D0;
+	opacity: 0.7;
+	position: absolute;
+	font-weight: bold;
+	top: 520px;
+	margin-left: -150px;
+	padding: 5px;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	width: 137px;
+	font-weight: bold;
+}
+
+input#userName-input {
+	font-size: 28px;
+	text-align: center;
+}
+
+#search-button{
+	background-image: url("../images/search-icon.png");
+	width: 20px;
+	height:20px;
+	margin-top: 1px;
+}
+
+/* 
+------- Paging section--------
+ */
+.inactive
+{
+	opacity: 0.7;
+	filter:alpha(opacity=70);
+	cursor:auto !important;
+} 
+.currentPage
+{
+	color: #777 !important;
+	font-size: 2em;
+	cursor:auto !important;
+}
+.page
+{
+	font-size: 2em;
+	color: #000;
+}
+#previous
+{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-image: url("../images/pageLeft.png");
+	cursor: pointer;
+}
+#next
+{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-image: url("../images/pageRight.png");
+	cursor: pointer;
+}
+ 
+ 
+ /* 
+------- Paging section--------
+ */
+ 
+ 
+ /* 
+------- Registration section--------
+ */
+ #registrationForm
+ {
+	width: 800px;
+	background-color: #00afab;
+	text-align: center;
+	height: 290px;
+	color: #fff;
+ }
+  #registrationForm input[type="text"], #registrationForm input[type="password"]
+  {
+	padding: 5px;
+	border-radius: 5px;
+ }
+ #registrationForm label
+ {
+	display:block;
+ }
+ div.labelAndInput
+ {
+	display: inline-block;
+	width: 200px;
+	margin-left: 150px;
+ }
+ #registrationForm>form
+ {
+	text-align: left;
+	width: 800px;
+ }
+ 
+ /* 
+------- Registration section--------
+ */
+ 
+ 
+ 
+ /* 
+------- Contacts section--------
+ */
+ #errorloc
+ {
+	color: red;
+ }
+ 
+ /* 
+------- End Contacts section--------
+ */
+#request_holder{
+	width: 185px;
+	background-color: #00AFAB;
+	opacity: 0.7;
+}
+#request_holder:hover{
+	opacity: 1;
+}
+
+ /* 
+------- Games section--------
+ */
+ #contentGame
+ {
+	padding: 15px;
+	width: 1000px;
+	margin: auto;
+	background-color: #fff;
+	text-align: center;
+	background-image: url("../images/Game_background.png");
+ }
+  #contentGame>h1
+  {
+	color: #00AFAB;
+	padding-top: 20px;
+	margin-bottom: 20px;
+ }
+ /* 
+------- End Games section--------
+ */
+ 
+ 
+  /* 
+------- Test section--------
+ */
+.test_category
+{
+	display: inline-block;
+	cursor: pointer;
+	width: 300px;
+	height: 200px;
+	margin-top: 5px;
+	position: relative;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+.test_category:hover {
+    -moz-transform: translate(-2px, -2px);
+    -ms-transform: translate(-2px, -2px);
+    -o-transform: translate(-2px, -2px);
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px)
+}
+.category_img 
+{
+	width: 300px;
+	height: 200px;
+}
+.category_name
+{
+	padding-top: 78px;
+	padding-bottom: 78px;
+	display: block;
+	filter:alpha(opacity=70);
+	background-color: #000;
+	color: #fff;
+	opacity: 0.7;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	width: 300px;
+	font-size: 2em;
+}
+ /* 
+------- End Test section--------
+ */
+.h2-titles{
+	background-color: #00afab;
+	width: 800px;
+	margin: auto;
+	margin-bottom: -15px;
+	color: #fff;
+}
+#registerButton{
+	background-color: #035151;
+	position: absolute;
+	left: 230px;
+	border: 0;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	width: 100px;
+	top: 450px;
+	margin-left: 410px;
+}
+#test-form{
+	width: 800px;
+	margin: auto;
+	text-align: left;
+	background-color: #00afab;
+	color: #fff;
+	font-size: 17px;
+	border: 2px solid #fff;
+	padding-left: 20px;
+	padding-top: 20px;
+	margin-top: 20px;
+}
+#submit-test{
+	background-color: #035151;
+	border: 0;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	width: 150px;
+	margin-left: 285px;
+	margin-bottom: 20px;
+}
+#testName{
+	margin: auto;
+	width: 200px;
+	text-decoration: underline;
+}
+
+#email{
+	font-weight: bold;
+}

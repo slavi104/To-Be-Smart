@@ -1,0 +1,57 @@
+﻿<%= erb :header %>
+<form id="test-form">
+  <input type="hidden" name="id" value="<%= test.id %>" />
+  <span id="points_container">Точки от теста: </span>
+  <%=test.generate_test %>
+  <input id="submit-test" type="submit" value="Приключване на теста!"></input>
+</form>
+<script type="text/javascript">
+$(document).ready(function(){
+  var execute = 1;
+  $('#submit-test').on('click', function(e){
+    e.preventDefault();
+    if ('<%= SESSION["logged"] ? "logged" : "" %>' === "") {
+      window.location.href = '/registration'
+    } else if (execute) {
+      execute = 0;
+      $.ajax({
+
+        type: 'POST',
+        url: '/grade_test?id=' + '<%= test.id %>',
+        data: $('#test-form').serialize(),
+        dataType: 'json'
+
+      }).done(function(questions){
+
+        var points = 0;
+        $('.answer').each(function(){
+          $(this).prop('disabled', true);
+          if ($(this).prop('checked')) {
+            if (questions[$(this).prop('name')][$(this).val()] != '0') {
+              $(this).next().css('color', 'green');
+              points++;
+            } else {
+              $(this).next().css('color', 'red');
+            }
+          };
+        });
+        $('#points_container').append(points);
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        
+      });
+
+    } else {
+
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+      alert('Този тест вече е решен и точките изкарани от него са записани!');
+
+    };
+  });
+
+  $('#wrapper0').css('background-image', 'url("<%= test.image %>")');
+  $('#wrapper0').css('width', $('body').css('width'));
+  $('#wrapper0').css('height', $('body').css('height'));
+  $('#wrapper0').css('background-size', $('body').css('width') + ' ' + $('body').css('height'));
+});
+</script>
+<%= erb :footer %>

@@ -2,10 +2,16 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 {
 	padding: 0px;
 	margin: 0px;
+	color: #fff;
 }
-#wrapper1
-{
-	
+#wrapper1 {
+	background-color: #BE4B64;
+	width: 64%;
+	margin: auto;
+	margin-top: -55px;
+	padding: 25px;
+	min-height: 400px;
+	opacity: 0.9;
 }
 
 
@@ -13,7 +19,6 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 body 
 {
 	background-color: #fff;
-	background-image:url("../images/backgound1.png");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	text-align: center;
@@ -50,12 +55,21 @@ header
 	margin: auto;
 	width: 100%;
 }
-#logo
-{
-	/*height: 130px;
-	background-image: url("../images/alumni.png");
-	background-repeat: no-repeat;
-	margin-bottom: 0px;*/
+#logo {
+height: 45px;
+background-image: url("../images/general/logo.png");
+background-repeat: no-repeat;
+margin-bottom: 0px;
+position: absolute;
+top: 28px;
+left: -5px;
+background-size: contain;
+z-index: 1;
+width: 363px;
+}
+
+label {
+	color: white;
 }
 
 nav#menu li
@@ -63,7 +77,8 @@ nav#menu li
 	text-decoration: none;
 	display: inline-block;
 	position: relative;
-	margin-top: 12px;
+	margin-top: 70px;
+	border-radius: 2px;
 }
 ul>li>a
 {
@@ -72,10 +87,10 @@ ul>li>a
 	background-color: #5A0013;
 	padding-left: 25px;
 	padding-top: 20px;
-	padding-bottom: 23px;
-	border: 0px solid #7e0e26;
-	border-radius: 0px;
-	font-size: 1.2em;
+	padding-bottom: 20px;
+	border: 1px solid #7e0e26;
+	border-radius: 5px;
+	font-size: 1em;
 	color: #fff;
 	font-weight: bold;
 }
@@ -84,7 +99,7 @@ nav#menu>ul>li:hover>a
 	color: #fff;
 }
 nav#menu, nav#menu>ul {
-	height: 65px;
+	height: 115px;
 	background-color: rgba(126, 14, 38,0.9);
 	margin-left: 0px;
 	margin-bottom: 20px;
@@ -144,16 +159,13 @@ aside
 	position: relative;
 	text-align: right;
 }
-#login input[type="submit"] {
+input[type="submit"] {
 	background-color: #35000B;
 	border: 0;
 	color: #fff;
 	padding: 5px;
 	cursor: pointer;
-	float: left;
-	width: 50px;
-	margin-left: 8%;
-	margin-top: 63%;
+	width: 153px;
 }
 #login input[type="text"], #login input[type="password"] {
 	background-color: #BE4B64;
@@ -258,13 +270,6 @@ input#userName-input {
 	text-align: center;
 }
 
-#search-button{
-	background-image: url("../images/search-icon.png");
-	width: 20px;
-	height:20px;
-	margin-top: 1px;
-}
-
 /* 
 ------- Paging section--------
  */
@@ -330,6 +335,8 @@ input#userName-input {
 	display: inline-block;
 	width: 200px;
 	margin-left: 150px;
+	margin-bottom: 10px;
+	margin-top: 5px;
  }
  #registrationForm>form
  {
@@ -450,10 +457,11 @@ input#userName-input {
 	font-weight: bold;
 	width: 20%;
 	margin-right: 30px;
+	margin-left: 39%;
 }
 
 #registerButton:hover{
-	background-color: #BE4B64;
+	/*background-color: #BE4B64;*/
 }
 
 #registrationForm > h2 {
@@ -473,7 +481,7 @@ input#userName-input {
 	margin-top: 20px;
 }
 #submit-test{
-	background-color: #035151;
+	background-color: #35000B;
 	border: 0;
 	color: #fff;
 	padding: 5px;
@@ -483,9 +491,8 @@ input#userName-input {
 	margin-bottom: 20px;
 }
 #testName{
-	margin: auto;
-	width: 200px;
 	text-decoration: underline;
+	text-align: center;
 }
 
 #search_container input[type=search] {
@@ -553,7 +560,6 @@ nav#menu>ul>li>a:hover {
 @media (min-width: 1200px){
 	body {
 		background-color: #fff;
-		background-image:url("../images/background-fullhd.png");
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		text-align: center;
@@ -780,4 +786,74 @@ span.is-teacher.pull-right {
 	color: white;
 	font-weight: bold;
 	margin-top: -20px;
+}
+.registration_error{
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+a.test_item {
+display: inline-block;
+padding: 20px;
+text-decoration: none;
+}
+
+img.category_img.test_img {
+border-radius: 15px;
+border: 3px solid #7e0e26;
+}
+
+#points_container{
+	color: #fff;
+}
+
+#wrapper0{
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity : 0.2;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+span#login_errors {
+	position: absolute;
+	top: 36px;
+	left: 115px;
+	color: black;
+}
+
+.index {
+text-align: justify;
+padding: 15px;
+font-size: 18px;
+}
+
+#index-test-link{
+	text-decoration: none;
+	padding-right: 25px;
+	background-color: #5A0013;
+	padding-left: 25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border: 1px solid #7e0e26;
+	border-radius: 5px;
+	font-size: 1em;
+	color: #fff;
+	font-weight: bold;
+	position: absolute;
+	right: 270px;
+	top: 627px;
+}
+
+h2.profile_info {
+	float: left;
+	width: 700px;
+	text-align: left;
 }

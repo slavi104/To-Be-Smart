@@ -1,46 +1,75 @@
-require "rubygems"
-require "sinatra"
-require "active_record"
-# require 'sinatra/activerecord'
+﻿require "sinatra"
+require './require.rb'
 require "sinatra/reloader"
+require './helpers/user.rb'
 
+also_reload './models/user.rb'
+also_reload './models/test.rb'
 
-also_reload 'C:/Users/Slavi/2besmart/users.rb'
-also_reload 'C:/Users/Slavi/2besmart/index.rb'
-also_reload 'C:/Users/Slavi/2besmart/views/index.erb'
+PATH_APP = 'C:/dev/'
+SESSION = Hash.new
 
-get '/users' do
-  require_relative 'users.rb'
-  User.showUsers
+Object::IS_TEST = false
+
+get '/' do
+  erb :index
 end
 
 get '/index' do
-  require_relative 'index.rb'
-  Index.showMainPage
+  erb :index 
 end
 
-# get '/' do
-#   erb :index
-# end
+get '/tests' do
+  erb :tests
+end
 
-ActiveRecord::Base.establish_connection(
-  :adapter  => "mysql",
-  :host     => "localhost",
-  :username => "root",
-  :password => "",
-  :database => "to_be_smart"
-)
+get '/profile' do
+  erb :profile
+end
 
-# class User < ActiveRecord::Base
-# end
+get '/categories' do
+  erb :categories
+end
 
-# ActiveRecord::Migration.create_table :users do |t|
-#   t.string :name
-# end
+post '/login' do
+  user = User.login(params[:emaillog], params[:pass])
+  erb :index
+end
 
-# class App < Sinatra::Application
-# end
+post '/logout' do
+  User.logout
+  redirect to('./')
+end
 
-# get '/' do
-#   p User.all
-# end
+post '/save_new_user' do
+  erb :registration ,:locals => {
+                             :errors => User.save_new_user(params)
+                           }
+end
+
+get '/users' do
+  erb :users, :locals => {
+                  :users => User.get_all_users
+                }
+end
+
+get '/registration' do
+  erb :registration ,:locals => {
+                               :errors => ''
+                             }
+end
+
+get '/get_tests' do
+  TestUser.get_tests(params['category'])
+end
+
+get '/test' do
+  erb :test, :locals => {
+                        :test => TestUser.get_test(params['id'])
+                     } 
+end
+
+post '/grade_test' do
+  test = TestUser.find_by(:id => params['id'])
+  test.grade_json(params)
+end

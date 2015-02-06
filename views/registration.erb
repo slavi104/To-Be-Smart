@@ -1,0 +1,61 @@
+﻿<%= erb :header %>
+<div id="content">
+  <div id="registrationForm">
+      <h2 style="color: #fff; text-align: center;">Регистрация:</h2>
+      <form method="POST" action="/save_new_user" id="registrationForm-form">
+          <div class="labelAndInput">
+              <label>Потребителско име:</label>
+              <input type="text" id="name" name="user_name">
+              <span class="errorloc"></span>
+          </div>
+          <div class="labelAndInput">
+              <label>Имейл:</label>
+              <input type="text" id="email" name="email">
+              <span class="errorloc"></span>
+          </div>
+          
+          <div class="labelAndInput">
+              <label>Парола:</label>
+              <input type="password" id="pass1" name="password">
+              <span class="errorloc"></span>
+          </div>
+          <div class="labelAndInput">
+              <label>Повтори паролата:</label>
+              <input type="password" id="pass2" name="password_repeat">
+              <span class="errorloc"></span>
+          </div>
+          <div class="labelAndInput">
+              <label>Пол:</label>
+              <input type="radio" name="sex" checked value="male"><span style="color:white;">Мъж</span>
+              <input type="radio" name="sex" value="female"><span style="color:white;">Жена</span>
+          </div>
+          <span class="registration_error"><%= if errors.class != TrueClass
+                                                 errors
+                                               else
+                                                'Вие се регистрирахте упешно!' 
+                                               end %></span>
+          <input type="submit" id="registerButton" value="Регистарация">
+      </form>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#registerButton').on('click', function(e){
+            e.preventDefault();
+            $.ajax({
+
+              type: 'POST',
+              url: '/save_new_user',
+              data: $('#registrationForm-form').serialize(),
+              dataType: 'html'
+
+            }).done(function(data){
+
+              $('html').empty();
+              $('html').html(data);
+              
+            });
+          });
+        });
+      </script>
+  </div>
+</div>
+<%= erb :footer %>
