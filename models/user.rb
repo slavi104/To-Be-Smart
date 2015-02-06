@@ -44,7 +44,7 @@
       new_user.is_active = 1
       new_user.test_points = 0
       new_user.created_on = Date.today.to_s
-      puts Date.today.to_s
+      # puts Date.today.to_s
       new_user.save
     elsif password.size < Constants::PASSWORD_MIN_LENGHT
       Constants::SHORT_PASSWORD

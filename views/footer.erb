@@ -5,6 +5,10 @@
         if (page == 'test') {
           page = page + 's';
         };
+
+        if (page == "") {
+          page = 'index';
+        };
         $('a[href="' + page + '"]').css('padding-bottom', '27px');
         $('a[href="' + page + '"]').css('background-color', '#BE4B64');
 

@@ -9,6 +9,8 @@ also_reload './models/test.rb'
 PATH_APP = 'C:/dev/'
 SESSION = Hash.new
 
+Object::IS_TEST = false
+
 get '/' do
   erb :index
 end

@@ -8,3 +8,5 @@ require './test/destroy.rb'
 set :environment, :test
 enable :sessions
 
+Object::IS_TEST = true
+

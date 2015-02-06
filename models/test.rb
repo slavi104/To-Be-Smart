@@ -82,7 +82,7 @@ class TestUser < ActiveRecord::Base
       end
     end
     SESSION['current_user'].test_points = points + SESSION['current_user'].test_points
-    SESSION['current_user'].save
+    SESSION['current_user'].save unless Object::IS_TEST
   end
     
 end

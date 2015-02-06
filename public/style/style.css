@@ -55,13 +55,17 @@ header
 	margin: auto;
 	width: 100%;
 }
-#logo
-{
-	/*height: 130px;
-	background-image: url("../images/general/logo.png");
-	background-repeat: no-repeat;
-	margin-bottom: 0px;
-	position: absolute;*/
+#logo {
+height: 45px;
+background-image: url("../images/general/logo.png");
+background-repeat: no-repeat;
+margin-bottom: 0px;
+position: absolute;
+top: 28px;
+left: -5px;
+background-size: contain;
+z-index: 1;
+width: 363px;
 }
 
 label {
