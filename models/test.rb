@@ -17,20 +17,20 @@ class TestUser < ActiveRecord::Base
   end
 
   def grade_json(params)
-
-    hash = Hash.new
+    # puts params.to_s
+    result = Hash.new
     questions = self.content.split('@')
     question_answer_switch = false
     question1 = ''
     questions.each do |question|
       if question_answer_switch 
         answers = question.split('$')
-        hash[question1] = Hash.new
+        result[question1] = Hash.new
         answer_points_switch = false
         index = 0
         answers.each do |answer|
           if answer_points_switch
-            hash[question1][answers[index-1].gsub(" ", "_")] = answer.gsub(" ", "_")
+            result[question1][answers[index-1].gsub(" ", "_")] = answer.gsub(" ", "_")
           end
           index += 1
           answer_points_switch = !answer_points_switch
@@ -41,9 +41,10 @@ class TestUser < ActiveRecord::Base
       question_answer_switch = !question_answer_switch
     end
 
-    TestUser.calculate_test_points(params, hash)
+    TestUser.calculate_test_points(params, result)
 
-    hash.to_json
+    # puts result.to_json
+    result.to_json
 
   end
 
