@@ -6,7 +6,7 @@ class TestUser < ActiveRecord::Base
     @tests = TestUser.where(:category => category) unless category == 'all'
     @tests = TestUser.all() if category == 'all'
     result = ''
-    @tests.each { |test| 
+    @tests.each { |test|
       result << "<a class='test_item' href='test?id=#{test.id}'><div><img class='category_img test_img' style='width:200px;' src='#{test.image}'/></div><span class='testTitle'>#{test.title}</span></a>"
     }
     result

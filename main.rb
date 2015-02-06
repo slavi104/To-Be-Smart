@@ -73,4 +73,3 @@ post '/grade_test' do
   test = TestUser.find_by(:id => params['id'])
   test.grade_json(params)
 end
-
