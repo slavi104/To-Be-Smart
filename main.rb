@@ -38,7 +38,7 @@ end
 
 post '/logout' do
   User.logout
-  redirect to('./')
+  redirect to('./index')
 end
 
 post '/save_new_user' do
@@ -72,4 +72,8 @@ end
 post '/grade_test' do
   test = TestUser.find_by(:id => params['id'])
   test.grade_json(params)
+end
+
+get '/*' do
+  redirect to('./index')
 end
