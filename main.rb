@@ -4,6 +4,8 @@ require "sinatra/reloader"
 require './helpers/user.rb'
 require './helpers/test.rb'
 
+set :environment, :production
+
 also_reload './models/user.rb'
 also_reload './models/test.rb'
 also_reload './models/graded_test.rb'
