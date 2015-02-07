@@ -1,11 +1,26 @@
 <%= erb :header %>
 <div id="content">
-  <h2 class="profile_info">Потребителско име: <%= SESSION['user_name'] %></h2>
-  <h2 class="profile_info">Имейл: <%= SESSION['email'] %></h2>
-  <h2 class="profile_info">Точки от тестове: <%= SESSION['current_user'].test_points %></h2>
-  <form method="POST" action="logout">
-    <input type="hidden" value="<%= SESSION['email'] %>"/>
+  <h2 class="profile_info">Потребителско име: <%= session['user_name'] %></h2>
+  <form method="POST" action="logout" style="width: 150px; float: right; display: inline-block;">
+    <input type="hidden" value="<%= session['email'] %>"/>
     <input type="submit" value="Изход"/>
   </form>
+  <h2 class="profile_info">Имейл: <%= session['email'] %></h2>
+  <h2 class="profile_info">Точки от тестове: <%= session['current_user'].test_points %></h2>
+  <h2 class="profile_info">Среден процент успеваемост: <%= success_tests %>%</h2>
+  <h2 class="profile_info" style="margin-bottom: 25px;">Процент решени тестове: <%= procent_tests %>%</h2>
+  <table id="users">
+      <thead>
+          <tr>
+              <th>Дата на решаване</th>
+              <th>Име на теста</th>
+              <th>Категория</th>
+              <th>Точки от теста</th>
+          </tr>
+      </thead>
+      <tbody id="tb">
+        <%= tests %>
+      </tbody>
+  </table>
 </div>
 <%= erb :footer %>

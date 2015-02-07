@@ -1,13 +1,31 @@
 class TestUser < ActiveRecord::Base
   has_many :tracks
   require 'json'
+  require_relative '../helpers/constants.rb'
 
-  def self.get_tests(category)
+  def self.get_tests(category, session)
     @tests = TestUser.where(:category => category) unless category == 'all'
     @tests = TestUser.all() if category == 'all'
+
     result = ''
     @tests.each { |test|
-      result << "<a class='test_item' href='test?id=#{test.id}'><div><img class='category_img test_img' style='width:200px;' src='#{test.image}'/></div><span class='testTitle'>#{test.title}</span></a>"
+      graded_test = GradedTest.where(:user_id => session['current_user'].id, :test_id => test.id).first if session['current_user']
+      if graded_test
+        result << "<a class='test_item' href='tests'>
+                    <div>
+                      <span class='graded_test'>#{Constants::GRADED_TEST}<br>#{Constants::POINTS}:#{graded_test.points}</span>
+                      <img class='category_img test_img' style='width:200px;' src='#{test.image}'/>
+                    </div>
+                    <span class='testTitle'>#{test.title}</span>
+                  </a>"
+      else
+        result << "<a class='test_item' href='test?id=#{test.id}'>
+                    <div>
+                      <img class='category_img test_img' style='width:200px;' src='#{test.image}'/>
+                    </div>
+                    <span class='testTitle'>#{test.title}</span>
+                  </a>"
+      end
     }
     result
   end
@@ -16,7 +34,7 @@ class TestUser < ActiveRecord::Base
     test = TestUser.find_by(:id => id)
   end
 
-  def grade_json(params)
+  def grade_json(params, session)
     # puts params.to_s
     result = Hash.new
     questions = self.content.split('@')
@@ -41,7 +59,7 @@ class TestUser < ActiveRecord::Base
       question_answer_switch = !question_answer_switch
     end
 
-    TestUser.calculate_test_points(params, result)
+    TestUser.calculate_test_points(params, result, self.id, session)
 
     # puts result.to_json
     result.to_json
@@ -54,10 +72,12 @@ class TestUser < ActiveRecord::Base
     html = "<h1><div id='testName'>#{self.title}</div></h1>"
     question_answer_switch = true
     under_scored_question = ''
+    question_number = 0
     questions.each do |question|
       if question_answer_switch
+        question_number += 1
         under_scored_question = question.gsub(" ", "_")
-        html << "<br><div id='#{under_scored_question}' class='question'><b>#{question}</b></div>"
+        html << "<br><div id='#{under_scored_question}' class='question'><b>#{question_number}. #{question}</b></div>"
       else 
         answers = question.split('$')
         answer_points_switch = true
@@ -74,15 +94,19 @@ class TestUser < ActiveRecord::Base
 
   end
 
-  def self.calculate_test_points(user_answers_hash, correct_answers_hash)
+  def self.calculate_test_points(user_answers_hash, correct_answers_hash, test_id, session)
     points = 0
     user_answers_hash.each do |u_question, u_answer|
       if correct_answers_hash[u_question]
         points += correct_answers_hash[u_question][u_answer].to_i
       end
     end
-    SESSION['current_user'].test_points = points + SESSION['current_user'].test_points
-    SESSION['current_user'].save unless Object::IS_TEST
+
+    # save this test as graded
+    GradedTest.add_graded(test_id, points, session)
+
+    session['current_user'].test_points = points + session['current_user'].test_points
+    session['current_user'].save unless Object::IS_TEST
   end
     
 end

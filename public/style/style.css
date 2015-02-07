@@ -854,6 +854,19 @@ font-size: 18px;
 
 h2.profile_info {
 	float: left;
-	width: 700px;
+	width: 660px;
 	text-align: left;
+}
+
+span.graded_test {
+position: absolute;
+height: 253px;
+width: 246px;
+margin-left: -20px;
+margin-top: -20px;
+background-color: #fff;
+opacity: 0.5;
+font-size: 22px;
+color: black;
+padding-top: 22px;
 }

@@ -2,12 +2,15 @@
 require './require.rb'
 require "sinatra/reloader"
 require './helpers/user.rb'
+require './helpers/test.rb'
 
 also_reload './models/user.rb'
 also_reload './models/test.rb'
+also_reload './models/graded_test.rb'
+also_reload './helpers/user.rb'
+also_reload './helpers/test.rb'
 
 PATH_APP = 'C:/dev/'
-SESSION = Hash.new
 
 Object::IS_TEST = false
 
@@ -19,59 +22,23 @@ get '/index' do
   erb :index 
 end
 
-get '/tests' do
-  erb :tests
-end
-
 get '/profile' do
-  erb :profile
+  graded_tests = GradedTest::get_graded(session)
+  erb :profile, :locals => {
+                              :tests => graded_tests,
+                              :procent_tests => GradedTest::procent_tests(session),
+                              :success_tests => GradedTest::success_tests(session)
+                          }
 end
 
 get '/categories' do
   erb :categories
 end
 
-post '/login' do
-  user = User.login(params[:emaillog], params[:pass])
-  erb :index
-end
-
-post '/logout' do
-  User.logout
-  redirect to('./index')
-end
-
-post '/save_new_user' do
-  erb :registration ,:locals => {
-                             :errors => User.save_new_user(params)
-                           }
-end
-
-get '/users' do
-  erb :users, :locals => {
-                  :users => User.get_all_users
-                }
-end
-
 get '/registration' do
   erb :registration ,:locals => {
                                :errors => ''
                              }
-end
-
-get '/get_tests' do
-  TestUser.get_tests(params['category'])
-end
-
-get '/test' do
-  erb :test, :locals => {
-                        :test => TestUser.get_test(params['id'])
-                     } 
-end
-
-post '/grade_test' do
-  test = TestUser.find_by(:id => params['id'])
-  test.grade_json(params)
 end
 
 get '/*' do

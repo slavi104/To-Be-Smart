@@ -1,5 +1,5 @@
 <%= erb :header %>
 <div id="content">
-  <%= TestUser.get_tests('all') %>
+  <%= TestUser.get_tests('all', session) %>
 </div>
 <%= erb :footer %>

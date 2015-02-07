@@ -55,22 +55,23 @@
     end
   end
 
-  def self.login(mail="user",password="pass")
+  def self.login(mail="user",password="pass", session)
     pass = Digest::MD5.hexdigest password.reverse
     current_user = User.find_by(email: mail , password: pass)
 
     if current_user
-      SESSION['logged'] = true
-      SESSION['user_name'] = current_user.user_name
-      SESSION['email'] = current_user.email
-      SESSION['current_user'] = current_user
-      SESSION['errors'] = ''
+      session['id'] = current_user.id
+      session['logged'] = true
+      session['user_name'] = current_user.user_name
+      session['email'] = current_user.email
+      session['current_user'] = current_user
+      session['errors'] = ''
     else
       current_user = User.new
       if User.find_by(email: mail)
-        SESSION['errors'] = Constants::WRONG_PASSWORD
+        session['errors'] = Constants::WRONG_PASSWORD
       elsif User.find_by(password: pass)
-        SESSION['errors'] = Constants::WRONG_EMAIL
+        session['errors'] = Constants::WRONG_EMAIL
       end
     end
 
@@ -80,10 +81,10 @@
   end
 
   def self.logout
-    SESSION['logged'] = false
-    SESSION['user_name'] = nil
-    SESSION['email'] = nil
-    SESSION['current_user'] = User.new
+    session['logged'] = false
+    session['user_name'] = nil
+    session['email'] = nil
+    session['current_user'] = User.new
   end
 
 end

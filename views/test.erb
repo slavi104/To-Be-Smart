@@ -10,7 +10,7 @@ $(document).ready(function(){
   var execute = 1;
   $('#submit-test').on('click', function(e){
     e.preventDefault();
-    if ('<%= SESSION["logged"] ? "logged" : "" %>' === "") {
+    if ('<%= session["logged"] ? "logged" : "" %>' === "") {
       window.location.href = '/registration'
     } else if (execute) {
       execute = 0;

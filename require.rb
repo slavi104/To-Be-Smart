@@ -5,6 +5,7 @@ require "sinatra/base"
 require './helpers/constants.rb'
 require './models/user.rb'
 require './models/test.rb'
+require './models/graded_test.rb'
 require 'chrome_logger'
 use ChromeLogger
 

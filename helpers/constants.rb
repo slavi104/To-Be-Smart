@@ -16,4 +16,14 @@
   HOST_PASSWORD = 'pass'
   NO_OLD_PASSWORD = "Няма въведена парола!"
   WRONG_PASSWORD_REPEAT = "Грешно повторена парола!"
+  GRADED_TEST = "Решен тест"
+  POINTS = "Изкарани точки"
+  CATEGORIES = {
+    'history' => "История" ,
+    'geography' => "География",
+    'iq' => "IQ",
+    'music' => "Музика",
+    'movies' => "Филми",
+    'general' => "Общи"
+     }
 end

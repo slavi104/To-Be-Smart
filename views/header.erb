@@ -24,22 +24,22 @@
             <li class="nav-buttons"><a href="tests">ТЕСТОВЕ</a></li>
             <li class="nav-buttons"><a href="categories">КАТЕГОРИИ</a></li>
             <li class="nav-buttons"><a href="users">ПОТРЕБИТЕЛИ</a></li>
-            <li class="nav-buttons" style="<%= 'display:none;' if !SESSION['logged'] %>">
-              <a href="profile"><%= SESSION['user_name'] %></a>
+            <li class="nav-buttons" style="<%= 'display:none;' if !session['logged'] %>">
+              <a href="profile"><%= session['user_name'] %></a>
             </li>
-            <li class="nav-buttons" style="<%= 'display:none;' if SESSION['logged'] %>" ><a href="registration">РЕГИСТРАЦИЯ</a></li>   
+            <li class="nav-buttons" style="<%= 'display:none;' if session['logged'] %>" ><a href="registration">РЕГИСТРАЦИЯ</a></li>   
           </ul>
         </nav>
       <aside>
-        <div id="login" style="<%= 'display:none;' if SESSION['logged'] %>">
+        <div id="login" style="<%= 'display:none;' if session['logged'] %>">
           <form method="POST" action="login" style="text-align: right; margin-top: 15px;">
             <div>
-              <label>Имейл:</label><input type="text" id="emaillog" name="emaillog" value="<%= SESSION['email'] %>">
+              <label>Имейл:</label><input type="text" id="emaillog" name="emaillog" value="<%= session['email'] %>">
             </div>
             <div>
               <label>Парола:</label><input type="password" id="pass" name="pass">
             </div>
-            <span id="login_errors" style="background-color: #FAFFBD;"><%= SESSION['errors'] if SESSION['errors'] != '' %></span>
+            <span id="login_errors" style="background-color: #FAFFBD;"><%= session['errors'] if session['errors'] != '' %></span>
             <input type="submit" value="Вход">
           </form>
         </div>

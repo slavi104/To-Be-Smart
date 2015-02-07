@@ -13,11 +13,11 @@ class UserTest < Test::Unit::TestCase
     params["Frozen(2013)_is?"] = "Animation"
     params["Who_played_Forrest_Gump_in_Forrest_Gump?"] = "Johnny Depp"
     result_json = '{"Frozen(2013)_is?":{"Documentary":"0","Comedy":"0","Animation":"1"},"Who_played_Forrest_Gump_in_Forrest_Gump?":{"Tom_Hanks":"1","Johnny_Depp":"0","Jack_Black":"0"}}'
-    SESSION['current_user'] = User.new
-    SESSION['current_user'].test_points = 0
+    session['current_user'] = User.new
+    session['current_user'].test_points = 0
 
     assert test.grade_json(params) == result_json
-    assert SESSION['current_user'].test_points == 1
+    assert session['current_user'].test_points == 1
   end
 
   def test_generate_test
