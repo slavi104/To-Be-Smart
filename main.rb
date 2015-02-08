@@ -5,7 +5,7 @@ require './helpers/user.rb'
 require './helpers/test.rb'
 require './helpers/general.rb'
 
-# set :environment, :develop
+set :environment, :production
 
 also_reload './models/user.rb'
 also_reload './models/test.rb'
