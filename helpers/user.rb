@@ -4,7 +4,7 @@ post '/login' do
 end
 
 post '/logout' do
-  User.logout
+  User.logout(session)
   redirect to('./index')
 end
 

@@ -80,7 +80,7 @@
     current_user
   end
 
-  def self.logout
+  def self.logout(session)
     session['logged'] = false
     session['user_name'] = nil
     session['email'] = nil
