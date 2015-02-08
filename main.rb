@@ -13,5 +13,3 @@ also_reload './models/graded_test.rb'
 also_reload './helpers/user.rb'
 also_reload './helpers/test.rb'
 also_reload './helpers/general.rb'
-
-PATH_APP = 'C:/dev/'
