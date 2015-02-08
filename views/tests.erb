@@ -3,3 +3,14 @@
   <%= TestUser.get_tests('all', session) %>
 </div>
 <%= erb :footer %>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.test_item').each(function(){
+    if ($(this).attr("data-logged") == 0) {
+      $(this).on('click', function(){
+        alert("Моля регистрирайте се и влезте системата, за да решавате тестове!");
+      });
+    };
+  });
+});
+</script>
