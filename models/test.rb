@@ -11,7 +11,7 @@ class TestUser < ActiveRecord::Base
     @tests.each { |test|
       graded_test = GradedTest.where(:user_id => session['current_user'].id, :test_id => test.id).first if session['current_user']
       logged_person = 0
-      logged_person = 1 if session['current_user'].id != nil
+      logged_person = 1 if session['id'] != nil
       if graded_test
         result << "<a class='test_item' href='tests'>
                     <div>
@@ -108,7 +108,7 @@ class TestUser < ActiveRecord::Base
     GradedTest.add_graded(test_id, points, session)
 
     session['current_user'].test_points = points + session['current_user'].test_points
-    session['current_user'].save unless Object::IS_TEST
+    session['current_user'].save
   end
     
 end

@@ -5,7 +5,7 @@ require './helpers/user.rb'
 require './helpers/test.rb'
 require './helpers/general.rb'
 
-set :environment, :develop
+# set :environment, :develop
 
 also_reload './models/user.rb'
 also_reload './models/test.rb'
@@ -15,5 +15,3 @@ also_reload './helpers/test.rb'
 also_reload './helpers/general.rb'
 
 PATH_APP = 'C:/dev/'
-
-Object::IS_TEST = false
