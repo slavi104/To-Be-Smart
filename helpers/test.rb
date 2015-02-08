@@ -6,9 +6,14 @@ get '/get_tests' do
 end
 
 get '/test' do
-  erb :test, :locals => {
+  if session['current_user'].id
+    erb :test, :locals => {
                         :test => TestUser.get_test(params['id'])
-                     } 
+                     }
+  else
+    redirect to('./registration')
+  end
+   
 end
 
 post '/grade_test' do
